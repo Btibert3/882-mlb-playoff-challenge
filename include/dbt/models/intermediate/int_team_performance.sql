@@ -1,0 +1,6 @@
+-- For each team, aggregate across all their games to produce a performance summary.
+--
+-- Every team appears as both home_team_id and away_team_id in stg_games.
+-- If you only look at one side, your averages will be wrong.
+-- Use UNION ALL to combine both sides before aggregating. Runs scored and runs allowed
+-- flip depending on which side the team is on — get that logic right first.

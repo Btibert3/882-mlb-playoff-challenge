@@ -1,0 +1,3 @@
+# these will be available in our airflow instance
+duckdb
+pandas

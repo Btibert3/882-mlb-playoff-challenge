@@ -1,0 +1,7 @@
+mlb_project:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../../mlb.duckdb
+      threads: 1

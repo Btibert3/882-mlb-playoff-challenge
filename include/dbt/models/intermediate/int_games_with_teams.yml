@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: int_games_with_teams
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null

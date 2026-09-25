@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_game_stats
+    columns:
+      - name: game_id
+        tests:
+          # TODO: add not_null test here
+      - name: side
+        tests:
+          # TODO: add accepted_values test here - review the data to find the values

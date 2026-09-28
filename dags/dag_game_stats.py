@@ -6,7 +6,7 @@ DB_PATH = "/usr/local/airflow/mlb.duckdb"
 
 
 @dag(
-    schedule_interval="@daily",
+    schedule="@daily",
     start_date=datetime(2026, 8, 1),
     end_date=datetime(2026, 9, 28),
     catchup=True,

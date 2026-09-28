@@ -5,7 +5,7 @@ BASE_URL = "https://btibert-bu--ba882-mlb-api-serve.modal.run"
 DB_PATH = "/usr/local/airflow/mlb.duckdb"
 
 
-@dag(schedule_interval="@once", start_date=datetime(2026, 9, 29), catchup=False)
+@dag(schedule="@once", start_date=datetime(2026, 9, 29), catchup=False)
 def teams():
 
     @task

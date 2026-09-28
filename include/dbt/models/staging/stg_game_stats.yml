@@ -9,4 +9,5 @@ models:
       - name: side
         tests:
           - accepted_values:
-              values: ["home", "away"]
+              arguments:                                                                                                                                           
+               values: ["home", "away"] 

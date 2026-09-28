@@ -1,3 +1,17 @@
--- TODO: raw_game_stats is not registered in _sources.yml yet — add it there first
---       or this model will not run.
+with source as (
+    select * from {{ source('mlb_raw', 'raw_game_stats') }}
+),
 
+renamed as (
+    select
+        game_id,
+        side,
+        runs,
+        hits,
+        errors,
+        left_on_base,
+        is_winner
+    from source
+)
+
+select * from renamed

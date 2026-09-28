@@ -5,4 +5,5 @@ models:
     columns:
       - name: game_id
         tests:
-          # TODO: add unique and not_null tests here
+          - unique
+          - not_null

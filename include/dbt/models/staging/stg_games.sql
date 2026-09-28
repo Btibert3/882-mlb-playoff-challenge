@@ -1,2 +1,18 @@
--- TODO: raw_games is not registered in _sources.yml yet — add it there first
---       or this model will not run.
+with source as (
+    select * from {{ source('mlb_raw', 'raw_games') }}
+),
+
+renamed as (
+    select
+        game_id,
+        game_date,
+        home_team_id,
+        away_team_id,
+        venue,
+        home_score,
+        away_score,
+        home_winner
+    from source
+)
+
+select * from renamed

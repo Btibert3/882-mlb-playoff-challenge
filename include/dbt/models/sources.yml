@@ -5,4 +5,5 @@ sources:
     schema: main
     tables:
       - name: raw_teams
-
+      - name: raw_games
+      - name: raw_game_stats

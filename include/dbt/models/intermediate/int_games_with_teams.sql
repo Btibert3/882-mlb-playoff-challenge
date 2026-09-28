@@ -13,12 +13,16 @@ joined as (
         g.venue,
 
         -- home team
+        home.team_id     as home_team_id,
         home.team_name   as home_team_name,
         home.league      as home_league,
         home.division    as home_division,
 
         -- away team
-        -- TODO: add the away team columns here, using the away alias below
+        away.team_id     as away_team_id,
+        away.team_name   as away_team_name,
+        away.league      as away_league,
+        away.division    as away_division,
 
         g.home_score,
         g.away_score,
@@ -26,9 +30,7 @@ joined as (
 
     from games g
     left join teams home on g.home_team_id = home.team_id
-
-    -- TODO: join teams a second time for the away team
-    --       give it a different alias so SQL knows which teams table you mean
+    left join teams away on g.away_team_id = away.team_id
 )
 
 select * from joined

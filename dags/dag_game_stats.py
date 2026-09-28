@@ -15,13 +15,23 @@ def game_stats():
 
     @task
     def fetch_game_stats(ds=None):
-        """Fetch game stats for all games played on {{ ds }} and append to raw_game_stats.
+        import requests
+        import pandas as pd
+        import duckdb
 
-        Read the /game_stats endpoint in the API docs before writing anything.
-        Understand what one row represents and what field connects this table
-        back to raw_games before you start coding.
-        """
-        pass
+        date = ds
+
+        resp = requests.get(f"{BASE_URL}/game_stats", params={"date": date})
+        resp.raise_for_status()
+        df = pd.DataFrame(resp.json())
+
+        if df.empty:
+            return
+
+        con = duckdb.connect(DB_PATH)
+        con.execute("CREATE TABLE IF NOT EXISTS raw_game_stats AS SELECT * FROM df LIMIT 0")
+        con.execute("INSERT INTO raw_game_stats SELECT * FROM df")
+        con.close()
 
     fetch_game_stats()
 

@@ -5,7 +5,8 @@ models:
     columns:
       - name: game_id
         tests:
-          # TODO: add not_null test here
+          - not_null
       - name: side
         tests:
-          # TODO: add accepted_values test here - review the data to find the values
+          - accepted_values:
+              values: ["home", "away"]

@@ -1,5 +1,3 @@
-version: "3"
-
 # Local dev only: mount the project root into the Airflow containers so that
 # mlb.duckdb written by Airflow (inside Docker at /usr/local/airflow/) lands
 # on the host filesystem where dbt can read it.
@@ -9,8 +7,5 @@ version: "3"
 
 services:
   scheduler:
-    volumes:
-      - .:/usr/local/airflow
-  worker:
     volumes:
       - .:/usr/local/airflow

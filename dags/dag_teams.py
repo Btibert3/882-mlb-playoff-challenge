@@ -2,6 +2,10 @@ import os
 from datetime import datetime
 from airflow.decorators import dag, task
 
+import requests
+import pandas as pd
+import duckdb
+
 BASE_URL = "https://btibert-bu--ba882-mlb-api-serve.modal.run"
 DB_PATH = os.path.expanduser("~/882-mlb-playoff-challenge/mlb.duckdb")
 
@@ -11,9 +15,6 @@ def teams():
 
     @task
     def fetch_teams():
-        import requests
-        import pandas as pd
-        import duckdb
 
         resp = requests.get(f"{BASE_URL}/teams")
         resp.raise_for_status()

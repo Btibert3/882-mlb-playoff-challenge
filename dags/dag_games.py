@@ -1,8 +1,9 @@
+import os
 from datetime import datetime
 from airflow.decorators import dag, task
 
 BASE_URL = "https://btibert-bu--ba882-mlb-api-serve.modal.run"
-DB_PATH = "/usr/local/airflow/mlb.duckdb"
+DB_PATH = os.path.expanduser("~/882-mlb-playoff-challenge/mlb.duckdb")
 
 
 @dag(

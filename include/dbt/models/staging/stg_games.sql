@@ -13,6 +13,7 @@ renamed as (
         away_score,
         home_winner
     from source
+    qualify row_number() over (partition by game_id order by game_date) = 1 
 )
 
 select * from renamed

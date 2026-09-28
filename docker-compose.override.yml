@@ -1,0 +1,16 @@
+version: "3"
+
+# Local dev only: mount the project root into the Airflow containers so that
+# mlb.duckdb written by Airflow (inside Docker at /usr/local/airflow/) lands
+# on the host filesystem where dbt can read it.
+#
+# In a real deployment (Astronomer Cloud, MWAA, etc.) this isn't needed —
+# the DAGs and dbt share the same filesystem natively.
+
+services:
+  scheduler:
+    volumes:
+      - .:/usr/local/airflow
+  worker:
+    volumes:
+      - .:/usr/local/airflow

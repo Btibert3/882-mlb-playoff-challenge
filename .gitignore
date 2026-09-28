@@ -7,3 +7,5 @@ include/dbt/logs/
 __pycache__/
 *.pyc
 .DS_Store
+.astro
+

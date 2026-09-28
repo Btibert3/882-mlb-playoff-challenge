@@ -10,7 +10,7 @@ BASE_URL = "https://btibert-bu--ba882-mlb-api-serve.modal.run"
 DB_PATH = os.path.expanduser("~/882-mlb-playoff-challenge/mlb.duckdb")
 
 
-@dag(schedule="@once", start_date=datetime(2026, 9, 29), catchup=False)
+@dag(schedule="@once", start_date=datetime(2026, 6, 1), catchup=False)
 def teams():
 
     @task

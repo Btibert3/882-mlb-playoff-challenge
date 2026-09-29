@@ -12,6 +12,9 @@ DB_PATH = os.path.expanduser("~/882-mlb-playoff-challenge/mlb.duckdb")
     start_date=datetime(2026, 8, 1),
     end_date=datetime(2026, 9, 28),
     catchup=True,
+    default_args={
+        retries=3
+    }
 )
 def game_stats():
 
